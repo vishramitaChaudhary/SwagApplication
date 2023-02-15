@@ -24,8 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import { LoginPageLocators } from "../pages/LoginPageLocators"
-Cypress.Commands.add('Login', (username, Password) => {
+import { LoginPageLocators } from "../PageObject/LoginPageLocators"
+Cypress.Commands.add('Login', (usernamePositive, Password) => {
     const loginPage=new LoginPageLocators()
     loginPage.getUsername().type(usernamePositive)
     loginPage.getPassword().type(Password)

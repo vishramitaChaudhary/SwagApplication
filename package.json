@@ -19,5 +19,8 @@
   "homepage": "https://github.com/vishramitaChaudhary/SwagApplication#readme",
   "dependencies": {
     "cypress": "^12.5.1"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.3.0"
   }
 }

@@ -1,27 +1,30 @@
 /// <reference types="cypress"/>
  
-import LoginPageLocators from "../pages/LoginPageLocators";
+import LoginPageLocators from "../PageObject/LoginPageLocators";
 
 
 describe('loginTest', () => {
       before(function (){
-        cy.fixture("loginTestData.json").then((data) => {
-            this.data = data;
-            console.log(data);
+        cy.fixture("LoginPageData").then((userdata) => {
+            this.data = userdata;
+            console.log(this.data);
 
         });
       });
 
-    it('Verify positive loginPage',function () {
+    it ('Print title',function(){
+
+        var title = cy.title();
+        console.log(title);
+    })  
+
+    it('Verify positive TC',function () {
 
         //const Homepage=new LoginPageLocators()
 
         cy.visit('https://www.saucedemo.com/');
-       
-        var title = cy.title();
-        console.log(title);
 
-        cy.Login(this.data.usernamePositive, this.data.password)
+        cy.Login(this.data.username, this.data.password)
 
        // Homepage.getUsername().type(this.data.usernamePositive)
        // Homepage.getPassword().type(this.data.password)
@@ -29,9 +32,9 @@ describe('loginTest', () => {
 
     })
 
-    it('Verify Negative loginPage',function () {
+    it('Verify Negative TC',function () {
 
-      const Homepage=new LoginPageLocators()
+      //const Homepage=new LoginPageLocators()
 
       cy.visit('https://www.saucedemo.com/');
       cy.Login(this.data.usernameNegative, this.data.password)
